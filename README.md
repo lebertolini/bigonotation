@@ -15,12 +15,12 @@ This function aims to find an element without an array.
 ```js
 const findElement = (array, element) => {
 
-let elementFind
+  let elementFind
 
   for(let j = 0; j < array.length; j++){
     for (let i = 0; i < array.length; i++){
       if (element === array[i]) {
-	elementFind = array[i]
+        elementFind = array[i]
       }
     }
   }
@@ -41,13 +41,13 @@ Now look at this other function
 ```js
 const findElement = (array, element) => {
 
-  let elementFind
+let elementFind
 
-   for (let i = 0;  i < array.length; i++) {
-     if (element === array[i]) {
-       elementFind = array[i]
-     }	
-   }
+  for (let i = 0;  i < array.length; i++) {
+    if (element === array[i]) {
+      elementFind = array[i]
+    }	
+  }
 
   return elementFind || 'There is no such element in the array'
 }
