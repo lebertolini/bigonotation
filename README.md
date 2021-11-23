@@ -41,7 +41,7 @@ Now look at this other function
 ```js
 const findElement = (array, element) => {
 
-let elementFind
+  let elementFind
 
   for (let i = 0;  i < array.length; i++) {
     if (element === array[i]) {
