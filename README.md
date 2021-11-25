@@ -19,13 +19,13 @@ let elementFind
 
   for(let j = 0; j < array.length; j++){
       for (let i = 0; i < array.length; i++){
-				if (element === array[i]) {
-					elementFind = array[i]
-				}
-			}
-	}
+        if (element === array[i]) {
+          elementFind = array[i]
+        }
+      }
+  }
 
-	return elementFind || 'There is no such element in the array'
+  return elementFind || 'There is no such element in the array'
 }
 ```
 
@@ -41,15 +41,15 @@ Now look at this other function
 ```js
 const findElement = (array, element) => {
 
-	let elementFind
+  let elementFind
 
-	for (let i = 0;  i < array.length; i++) {
-		if (element === array[i]) {
-			elementFind = array[i]
-		}	
-	}
+  for (let i = 0;  i < array.length; i++) {
+    if (element === array[i]) {
+      elementFind = array[i]
+    }	
+  }
 
-	return elementFind || 'There is no such element in the array'
+  return elementFind || 'There is no such element in the array'
 }
 ```
 
@@ -67,9 +67,9 @@ const findElement = (array, element) => {
 
 ## Constants O(1)
 
-Algoritimos constantes ou funções constantes são aqueles que seu tempo de performance sempre será o mesmo, no caso de uma função, independente da quantidade de entradas nela o tempo para executa-la será o mesmo.
+Constant algorithms or constant functions are those whose performance time will always be the same, in the case of a function, regardless of the number of entries in it, the time to execute it will be the same.
 
-Observe essa função:
+Note this function:
 
 ```js
 const firstElement = (array) => {
