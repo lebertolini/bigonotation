@@ -104,3 +104,113 @@ Note: The methods that occur in loop will be explained later
 In this graph we can see the performance of operations by elements, later I will explain about the other notations, but note that the blue line that demonstrates the O(1) notation and note that regardless of the amount of incoming elements, the amount of operations remain the same and hence the runtime.
 
 ![o(1)](graphic.png)
+
+## Linear O(n)
+
+This type of algorithm receives its name because its performance time scalability is linearly increasing in relation to the amount of elements entering the function or algorithm, that is, for each element entering its time performance will increase linearly.
+
+#### How does it work ?
+
+Generally linear functions interact with each incoming element for this reason, the more elements, the more operations.
+
+Note this function
+
+```js
+const elementToIndex = (array) => { 
+  for ( let i = 0; i < array.length ) {  
+    array[i] = i  
+  }
+
+  return array
+  }
+  console.log(elementToIndex(["Red"]))
+  // expected output = [1]
+  console.log(elementToIndex(["Red", "Blue"]))
+  // expected output = [1, 2]
+  console.log(elementToIndex(["Red", "Blue", "Pink"]))
+  // expected output = [1, 2, 3]
+```
+
+As you can see the function creates a loop, this is executed by passing each element of the array and changing the element so that it matches its index. Thinking in terms of time stability, the first function call has only one element, applying the change only to it, in the second it has two elements increasing the execution time by 100% because now you will have to do the same process in the second element, the same occurs in relation to the third call, the time comparison is 200% greater for the third call in relation to the first, this is because for each additional element in the input the execution time will increase linearly proportionally.
+
+Another example in a javascript method is the map, this method iterates through each element of an array, applying any modification you define on the element, note:
+
+```js
+const array = [5, 10, 20]
+
+const newArray = array.map(element => element * 2)
+
+console.log(newArray)
+// expected output = [10, 20, 40]
+```
+
+As you can see, the method iterates through each element of the array, that is, an O(n), multiplying each element by 2.
+
+## Quadratic O(n^2)
+
+This type of algorithm is characterized by scaling its interactions with each incoming element in a quadratic way, if you enter 2 elements there will be 4 operations because in 2^2 = 4, if you enter 10 elements there will be 100 operations, because 10^2 = 100 and so on.
+
+#### How does it work in practice ?
+
+At the end of a school's school year, we have the final result in an array in the pass list and another array with the list of class participants, but we need a list of those who failed and for this it will be necessary to check for each student if he is or not on the pass list, if not, you will be pulled to the fail list.
+
+Watch:
+
+```js
+const approved = ['Ashley', 'Oliver', 'John', 'Sandy', 'Scarlett']
+
+const allEnrolled = ['Ashley', 'Oliver', 'Michael', 'Carly', 'Sandy', 'Scarlett', 'Caitlin', 'John']
+
+const disapprove = []
+
+  for (let i = 0; i < allEnrolled.length; i++) {
+
+    let approvedParticipant = false
+
+    for (let j = 0; j < approved.length; j++) {
+        console.log(allEnrolled[i] === approved[j])
+      if (allEnrolled[i] === approved[j]) {
+        approvedParticipant = true
+      }
+    }
+
+    if (!approvedParticipant) {
+        disapprove.push(allEnrolled[i])
+    }
+  }
+```
+
+First, we go through each student in the list of participants and for each student a sub-interaction with a support list is necessary, so that it can be verified if the student passed or not, not great, we call this notation O (n ^ 2) because for each element there is a sub-interaction that is, a loop inside the other.
+
+## Logarithmic O(log n)
+
+This type of function or algorithm has a different behavior from the previous ones and also has a better performance in relation to time.
+
+So far we have seen the degree of complexity of the functions growing and their performance decreasing because the number of operations were greater than the incoming elements, but for the logarithmic functions this happens differently, since the number of operations decreases with time, so always the number of operations will be less than the number of elements for that type of function.
+
+Note the function below
+
+```js
+const binarySearch = (array, element) => {
+        let low = 0
+        let high = array.length - 1
+        while(low <= high){
+            let mid = Math.floor((low + high) / 2)
+            if(array[mid] === element){
+                return mid
+            }
+            if(array[mid] < element){
+                low = mid + 1
+            }else{
+                high = mid - 1
+            }
+        }
+        return -1
+    }
+```
+
+It has as input an ordered array and an element, this function aims to find the input element inside the array, so it doesn't have to go through the array element by element, which would be the case of O(n), it takes the element central of the array and checks if it's larger or smaller than the element we're requesting, that way it can eliminate half of the elements by knowing which side to look for in your next search
+
+Note: Despite being very performative, it is not always possible to create this type of function, in this case it was necessary to have an ordered array, for this reason it is possible to go linearly decreasing the number of elements, because we know which side to look for, eliminating the number of elements for each loop
+
+## Logarithmic O(log n)
