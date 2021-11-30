@@ -2,6 +2,21 @@
 
 The Big O Notation are a set of notations that aim to say how much a function or algorithm is scalable in relation to the execution time, thus it is categorized into several types of notations that are: constants O(1), linear O(n ), quadratics O(n^2), logarithms O(log n) , exponentials O(2^n) and factorials O(n!)
 
+#### Prior knowledge
+
+In order for you to get a better interpretation of the knowledge taught here, you will need some prior knowledge:
+
+* Elements 
+* Arrays
+* Arrow Function ()
+* Loops
+* If/Else
+* Javascript methods ( For, Map, Find, While, Shift)
+
+Note: As an example I used a JavaScript programming language, but it is possible and important to use this knowledge in any programming language that has time manipulation of functions and algorithms with percussion in elements
+
+All this knowledge is above it is possible to find in JavaScript at the link [Developer Mozilla](https://developer.mozilla.org)
+
 ## Why is Big O important ?
 
 The importance of big o regarding the creation of a code is to determine what is the best way to use the data in relation to the performance of the time, that's why it is usually used in the creation or refactoring of codes that manipulate data, which are usually involved in loops , for this reason it is important that your scalability is at high performance, or the best possible performance for that situation
@@ -163,21 +178,23 @@ const allEnrolled = ['Ashley', 'Oliver', 'Michael', 'Carly', 'Sandy', 'Scarlett'
 
 const disapprove = []
 
-  for (let i = 0; i < allEnrolled.length; i++) {
+for (let i = 0; i < allEnrolled.length; i++) {
 
-    let approvedParticipant = false
+  let approvedParticipant = false
 
-    for (let j = 0; j < approved.length; j++) {
-        console.log(allEnrolled[i] === approved[j])
-      if (allEnrolled[i] === approved[j]) {
-        approvedParticipant = true
-      }
-    }
-
-    if (!approvedParticipant) {
-        disapprove.push(allEnrolled[i])
+  for (let j = 0; j < approved.length; j++) {
+    if (allEnrolled[i] === approved[j]) {
+      approvedParticipant = true
     }
   }
+
+  if (!approvedParticipant) {
+    disapprove.push(allEnrolled[i])
+  }
+}
+
+console.log(disapprove)
+// expected output = ["Michael, "Carly", "Caitlin"]
 ```
 
 First, we go through each student in the list of participants and for each student a sub-interaction with a support list is necessary, so that it can be verified if the student passed or not, not great, we call this notation O (n ^ 2) because for each element there is a sub-interaction that is, a loop inside the other.
@@ -207,6 +224,8 @@ const binarySearch = (array, element) => {
         }
         return -1
     }
+console.log(binarySearch([1, 2, 3, 4, 5, 6], 5))
+// expected output = 5
 ```
 
 It has as input an ordered array and an element, this function aims to find the input element inside the array, so it doesn't have to go through the array element by element, which would be the case of O(n), it takes the element central of the array and checks if it's larger or smaller than the element we're requesting, that way it can eliminate half of the elements by knowing which side to look for in your next search
