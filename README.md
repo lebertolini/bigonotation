@@ -8,10 +8,11 @@ In order for you to get a better interpretation of the knowledge taught here, yo
 
 * Elements 
 * Arrays
-* Arrow Function ()
+* Arrow Function
 * Loops
 * If/Else
 * Javascript methods ( For, Map, Find, While, Shift)
+* Recursive Functions
 
 Note: As an example I used a JavaScript programming language, but it is possible and important to use this knowledge in any programming language that has time manipulation of functions and algorithms with percussion in elements
 
@@ -232,4 +233,57 @@ It has as input an ordered array and an element, this function aims to find the 
 
 Note: Despite being very performative, it is not always possible to create this type of function, in this case it was necessary to have an ordered array, for this reason it is possible to go linearly decreasing the number of elements, because we know which side to look for, eliminating the number of elements for each loop
 
-## Logarithmic O(log n)
+## Exponencial O(2^n)
+
+This type of function has the characteristics of a high time scalability, with that it has a low performance. This occurs because the amount of operations per element is very high, usually algorithms or exponential functions have a recursive behavior, that is, the function itself calls internally, this occurs in such a way that for each element 2 new recursive calls are made. function usually of exponent N-1.
+
+To better exemplify the behavior of this notation I will use the example of the Fibonacci sequence function, this sequence is characterized by starting with 0 and 1 in its terms and all the numbers after it are the sum of the two previous numbers.
+
+```js
+0, 1, 1, 2, 3, 5, 8, 13, 21
+```
+Note a function below
+
+```js
+function fibonacci(num) {
+    if(num < 2) {
+        return num;
+    }
+    else {
+        return fibonacci(num-1) + fibonacci(num - 2);
+    }
+}
+
+const nTerms = 5
+
+if(nTerms <=0) {
+    console.log('Enter a positive integer.');
+}
+else {
+    for(let i = 0; i < nTerms; i++) {
+        console.log(fibonacci(i));
+        //expected output 0, 1, 1, 2 ,3
+    }
+}
+
+```
+
+The purpose of this function is that in the input you define which is the term of the Fibonacci sequence you want to search, that is, which is the position of the term (index) you are looking for the value, this occurs in such a way that it is recursively checked the predecessors of the number referring to that index these are added to verify the desired value. In the example above I use the term of index 5 to get its value, but to make the example more demonstrative I use a loop that shows on the console all the values ​​of the sequence up to the desired index.
+
+Note that for each number there will be 2 new recursive calls with n-1 and n-2, in terms of Big O Notation this type of algorithm is changed as O (2^n) because of its time complexity.
+
+## Factorial o(n!)
+
+Algorithms or functions are those whose input is n elements and their subsequent operations are called from the same recursively function of size n-1, that is, for each incoming element the algorithm or function will be called on amount of n(representing the input)-1 times
+
+Note a function below:
+
+```js
+function bigofatexemple(n) {
+  for(let i=0; i<n; i++) {
+    bigofatexemple(n-1);
+  }
+}
+```
+
+Note that a loop is initially executed according to the size of incoming elements and for each time the loop is passed the function with the size of element n-1 is called recursively, that is, each call of this will be executed internally to new function calls resulting in an extremely low performance loop, for this reason algorithms and functions of O(N!) complexity should be avoided.
