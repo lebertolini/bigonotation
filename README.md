@@ -26,7 +26,7 @@ The importance of big o regarding the creation of a code is to determine what is
 
 As an example, I'm going to use a function with algorithmic scalability, but you don't need to pay attention to the terms, but to the example and the use of the function.
 
-This function aims to find an element without an array.
+This function aims to find an element in an array.
 
 ```js
 const findElement = (array, element) => {
